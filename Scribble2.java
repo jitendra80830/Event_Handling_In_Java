@@ -3,7 +3,7 @@ import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
 
-public class Scribble extends Applet{
+public class Scribble2 extends Applet{
 	private int last_x; //store the last mouse position of x
 	private int last_y; //store the last mouse position of y
 	
@@ -39,26 +39,45 @@ public class Scribble extends Applet{
 		return true;
 	}
 	//this Method is called whhen the user dragg the mouse
-	public boolean mouseDrag(Event e int x,int y){
+	public boolean mouseDrag(Event e,int x,int y){
 		Graphics g=this.getGraphics();
 		g.setColor(current_color);
 		g.drawLine(last_x,last_x,x,y);
-		last_x=x'
+		last_x=x;
 		last_y=y;
 		return true;
 	}
 	//this method is called when the user click the button or choise a color
-	public  boolean action(Event event,object arg){
+	public  boolean action(Event event,Object arg){
 		
 		//if the clear button was clicked on ,handle it
 		if(event.target==clear_button){
 			Graphics g=this.getGraphics();
 			Rectangle r=this.bounds();
-			g.setColor(this.setBackground());
-			g.fillRect(r.x,r.y,r.width,r.height)
+			g.setColor(this.getBackground());
+			g.fillRect(r.x,r.y,r.width,r.height);
 			return true;
 		}
-		
+		//Otherwise if a color was chosen handle that
+		else if(event.target==color_choice){
+			if(arg.equals("black"))
+				current_color=Color.black;
+			else if(arg.equals("red"))
+				current_color=Color.red;
+			else if(arg.equals("yellow"))
+				current_color=Color.yellow;
+			else if(arg.equals("green"))
+				current_color=Color.green;
+			return true;
+		}
+		//otherwise,let the superclass handle it
+		else
+			return super.action(event,arg);
+	}
+}
+/*
+<applet code="Scribble2.class" height=500 width=400></applet>
+*/
 		 
 	
 	
