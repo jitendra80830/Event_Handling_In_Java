@@ -15,9 +15,11 @@ public class Scribble2 extends Applet{
 	//this method is called to initialize the applet
 	public void init(){
 		this.setBackground(Color.white);
+		
 		clear_button=new Button("clear");
 		clear_button.setBackground(Color.lightGray);
 		clear_button.setForeground(Color.black);
+		
 		this.add(clear_button);
 		
 		//create a menu of color added it to the applet
@@ -29,7 +31,7 @@ public class Scribble2 extends Applet{
 		color_choice.addItem("green");
 		color_choice.setForeground(Color.black);
 		color_choice.setBackground(Color.lightGray);
-		this.add(new Label("color"));
+		this.add(new Label("color: "));
 		this.add(color_choice);
 	}
 	//this method is called whhen the user click the mouse to start a Scribble
